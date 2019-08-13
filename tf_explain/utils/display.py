@@ -85,16 +85,16 @@ def heatmap_display(heatmap, original_image, colormap=cv2.COLORMAP_VIRIDIS):
 
     map = (map - np.min(map)) / (map.max() - map.min())
 
-    heatmap = cv2.applyColorMap(
-        cv2.cvtColor((map * 255).astype("uint8")), colormap
-    )
+    # heatmap = cv2.applyColorMap(
+    #     cv2.cvtColor((map * 255).astype("uint8"), cv2.COLOR_GRAY2BGR), colormap
+    # )
 
-    output = cv2.addWeighted(
-        cv2.cvtColor(original_image.astype("uint8")),
-        0.7,
-        heatmap,
-        1,
-        0,
-    )
+    # output = cv2.addWeighted(
+    #     cv2.cvtColor(original_image.astype("uint8"), cv2.COLOR_RGB2BGR),
+    #     0.7,
+    #     heatmap,
+    #     1,
+    #     0,
+    # )
 
-    return cv2.cvtColor(output, cv2.COLOR_BGR2RGB)
+    return map
